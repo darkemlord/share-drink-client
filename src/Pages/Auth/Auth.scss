@@ -1,0 +1,10 @@
+@import '../../scss/index.scss';
+
+.css-sghohy-MuiButtonBase-root-MuiButton-root {
+  background-color: $wine !important;
+  color: $beer !important;
+  &:hover{
+    background-color: rgb(119, 24, 24) !important;
+    color: white !important;
+  }
+}
