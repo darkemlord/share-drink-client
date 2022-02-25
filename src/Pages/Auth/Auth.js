@@ -1,7 +1,8 @@
 import React from 'react';
 import './Auth.scss';
 
-const Auth = () => {
+const Auth = (props) => {
+  const { setAuth } = props;
   return (
     <div>Auth</div>
   )

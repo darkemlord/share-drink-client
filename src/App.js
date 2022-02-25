@@ -1,12 +1,14 @@
-import React from "react";
-import Home from './Pages/Home'
+import React, { useState } from "react";
+import Home from './Pages/Home';
+import Auth from "./Pages/Auth/Auth";
 
 function App() {
+  const [auth, setAuth] = useState(null);
+
   return (
-    <div className="App">
-      <h1>Hello new App 💅🏻 hi</h1>
-      <Home />
-    </div>
+    <>
+      {!auth ? <Auth auth={setAuth}/> : <Home />}
+    </>
   );
 }
 
