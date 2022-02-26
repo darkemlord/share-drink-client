@@ -8,11 +8,17 @@ const RegisterForm = () => {
 
   const formik = useFormik({
     initialValues: initialValues(),
+    validationSchema: yup.object({
+      name: yup.string().required('Name is required')
+    }),
+    onSubmit: (formData) => {
+      console.log(formData)
+    },
+  });
 
-  })
   return (
     <>
-      <form onSubmit={() => console.log('hello world')}>
+      <form onSubmit={formik.handleSubmit}>
 
         {/* here we have the form inputs */}
         <TextField
@@ -27,7 +33,8 @@ const RegisterForm = () => {
           style={{borderRadius:'10px',
             backgroundColor: "white"
           }}
-          onChange={(e)=>console.log(e.target.value)}
+          value={formik.values.name}
+          onChange={formik.handleChange}
         />
 
         <TextField
@@ -91,7 +98,7 @@ const RegisterForm = () => {
             backgroundColor: "white"
           }}
         />
-        <Button variant='contained'>Click on me</Button>
+        <Button type='submit' variant='contained'>Click on me</Button>
       </form>
     </>
   )
