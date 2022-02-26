@@ -119,7 +119,7 @@ const RegisterForm = () => {
           onChange={formik.handleChange}
           error={formik.errors.confirmPassword && true}
         />
-        <Button type='submit' variant='contained'>Click on me</Button>
+        <Button className='register-button' type='submit' variant='contained'>Register!</Button>
       </form>
     </>
   )

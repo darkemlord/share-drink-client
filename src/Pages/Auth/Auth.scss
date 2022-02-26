@@ -1,12 +1,13 @@
 @import '../../scss/index.scss';
 
 .auth{
-  border: solid black;
   display: flex !important;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   height: 100vh;
+  background-image: url('../../assets/Images/formBack.jpg');
+  background-size: cover;
   .background-form {
   object-fit: cover;
   height: 100vh;
@@ -21,6 +22,7 @@
 }
 
 .form-container{
+  width: 50%;
   padding: 20px;
   background-color: $wood;
   display: flex;
