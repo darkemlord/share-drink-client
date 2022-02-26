@@ -9,7 +9,8 @@ const RegisterForm = () => {
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: yup.object({
-      name: yup.string().required('Name is required')
+      name: yup.string().required('Name is required'),
+      username: yup.string().matches(/^[a-zA-Z0-9-]*$/, 'Username shouldn\'t contain spaces').required('Username is required')
     }),
     onSubmit: (formData) => {
       console.log(formData)
@@ -28,13 +29,15 @@ const RegisterForm = () => {
           size='small'
           id='name'
           name='name'
-          label='name'
+          label='Name'
           inputProps={{shrink: +false}}
           style={{borderRadius:'10px',
             backgroundColor: "white"
           }}
           value={formik.values.name}
           onChange={formik.handleChange}
+          error={formik.errors.name && true}
+          helperText={formik.errors.name}
         />
 
         <TextField
@@ -44,12 +47,16 @@ const RegisterForm = () => {
           size='small'
           id='username'
           name='username'
-          label='username'
+          label='Username'
           InputProps={{shrink: +false}}
           style={{
             borderRadius:'10px',
             backgroundColor: "white"
           }}
+          value={formik.values.username}
+          onChange={formik.handleChange}
+          error={formik.errors.username && true}
+          helperText={formik.errors.username}
         />
 
         <TextField
