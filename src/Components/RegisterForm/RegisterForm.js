@@ -10,7 +10,14 @@ const RegisterForm = () => {
     initialValues: initialValues(),
     validationSchema: yup.object({
       name: yup.string().required('Name is required'),
-      username: yup.string().matches(/^[a-zA-Z0-9-]*$/, 'Username shouldn\'t contain spaces').required('Username is required')
+      username: yup.string()
+      .matches(/^[a-zA-Z0-9-]*$/, 'Username shouldn\'t contain spaces')
+      .required('Username is required'),
+      email: yup.string().email('Email is not valid').required('Email is required'),
+      password: yup.string().required('Password is required')
+      .oneOf([yup.ref('confirmPassword')], 'Password doesn\'t match'),
+      confirmPassword: yup.string().required('Confirm your password')
+      .oneOf([yup.ref('password')], 'Password doesn\'t match')
     }),
     onSubmit: (formData) => {
       console.log(formData)
@@ -37,7 +44,6 @@ const RegisterForm = () => {
           value={formik.values.name}
           onChange={formik.handleChange}
           error={formik.errors.name && true}
-          helperText={formik.errors.name}
         />
 
         <TextField
@@ -56,7 +62,6 @@ const RegisterForm = () => {
           value={formik.values.username}
           onChange={formik.handleChange}
           error={formik.errors.username && true}
-          helperText={formik.errors.username}
         />
 
         <TextField
@@ -66,12 +71,15 @@ const RegisterForm = () => {
           size='small'
           id='email'
           name='email'
-          label='email'
+          label='Email'
           InputProps={{shrink: +false}}
           style={{
             borderRadius:'10px',
             backgroundColor: "white"
           }}
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          error={formik.errors.email && true}
         />
 
         <TextField
@@ -88,6 +96,9 @@ const RegisterForm = () => {
             borderRadius:'10px',
             backgroundColor: "white"
           }}
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          error={formik.errors.password && true}
         />
 
         <TextField
@@ -98,12 +109,15 @@ const RegisterForm = () => {
           type='password'
           id='confirmPassword'
           name='confirmPassword'
-          label='confirmPassword'
+          label='Confirm Password'
           InputProps={{shrink: +false}}
           style={{
             borderRadius:'10px',
             backgroundColor: "white"
           }}
+          value={formik.values.confirmPassword}
+          onChange={formik.handleChange}
+          error={formik.errors.confirmPassword && true}
         />
         <Button type='submit' variant='contained'>Click on me</Button>
       </form>
