@@ -1,11 +1,14 @@
 import React from 'react';
 import { Button } from '@mui/material';
-import './RegisterForm.scss'
+import './RegisterForm.scss';
 
 const RegisterForm = () => {
   return (
     <div>
-      <Button variant='contained'>Click on me</Button>
+      <form onSubmit={() => console.log('hello world')}>
+
+        <Button variant='contained'>Click on me</Button>
+      </form>
     </div>
   )
 }

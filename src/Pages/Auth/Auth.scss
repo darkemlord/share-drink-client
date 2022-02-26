@@ -7,7 +7,12 @@
   justify-content: center;
   flex-direction: column;
   height: 100vh;
-  background-color: $beer;
+  .background-form {
+  object-fit: cover;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
 }
 
 .logo-form {
