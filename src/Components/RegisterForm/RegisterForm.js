@@ -137,7 +137,6 @@ const RegisterForm = () => {
           error={formik.errors.confirmPassword && true}
         />
         <Button className='register-button' type='submit' variant='contained'>Register!</Button>
-        <Button onClick={() => toast('hello')}>toast</Button>
       </form>
     </>
   )
