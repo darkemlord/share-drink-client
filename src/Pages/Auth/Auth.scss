@@ -17,4 +17,15 @@
 
 .logo-form {
   width: 250px;
+  margin: auto;
+}
+
+.form-container{
+  padding: 20px;
+  background-color: $wood;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  border-radius: 10px;
 }

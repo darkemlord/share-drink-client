@@ -8,3 +8,15 @@
     color: white !important;
   }
 }
+
+fieldset{
+    border: none !important;
+    outline: none !important;
+}
+
+.MuiOutlinedInput-root {
+  .input-style{
+    border-radius: 10px !important;
+    background-color: white !important;
+  }
+}

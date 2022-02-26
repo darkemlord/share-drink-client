@@ -10,9 +10,13 @@ const Auth = (props) => {
   const { setAuth } = props;
   return (
     <Container className='auth'>
+
       <img className='background-form' src={background} alt='no available'/>
-      <img className='logo-form'src={logo} alt='no available'/>
-      <RegisterForm />
+
+      <div className='form-container'>
+        <img className='logo-form'src={logo} alt='no available'/>
+        <RegisterForm />
+      </div>
     </Container>
   )
 }
