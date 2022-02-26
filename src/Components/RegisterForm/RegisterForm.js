@@ -8,6 +8,8 @@ const RegisterForm = () => {
   return (
     <>
       <form onSubmit={() => console.log('hello world')}>
+
+        {/* here we have the form inputs */}
         <TextField
           fullWidth
           focused={false}
@@ -31,6 +33,53 @@ const RegisterForm = () => {
           id='username'
           name='username'
           label='username'
+          InputProps={{shrink:false}}
+          style={{
+            borderRadius:'10px',
+            backgroundColor: "white"
+          }}
+        />
+
+        <TextField
+          fullWidth
+          focused={false}
+          margin='normal'
+          size='small'
+          id='email'
+          name='email'
+          label='email'
+          InputProps={{shrink:false}}
+          style={{
+            borderRadius:'10px',
+            backgroundColor: "white"
+          }}
+        />
+
+        <TextField
+          fullWidth
+          focused={false}
+          margin='normal'
+          size='small'
+          type='password'
+          id='password'
+          name='password'
+          label='password'
+          InputProps={{shrink:false}}
+          style={{
+            borderRadius:'10px',
+            backgroundColor: "white"
+          }}
+        />
+
+        <TextField
+          fullWidth
+          focused={false}
+          margin='normal'
+          size='small'
+          type='password'
+          id='confirmPassword'
+          name='confirmPassword'
+          label='confirmPassword'
           InputProps={{shrink:false}}
           style={{
             borderRadius:'10px',
