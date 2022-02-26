@@ -5,6 +5,7 @@ import { useMutation } from '@apollo/client';
 import './RegisterForm.scss';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { toast } from 'react-toastify'
 
 const RegisterForm = () => {
   const [register] = useMutation(REGISTER_USER);
