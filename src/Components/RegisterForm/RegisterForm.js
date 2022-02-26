@@ -1,10 +1,13 @@
 import React from 'react';
 import { Button, TextField } from '@mui/material';
+import { REGISTER_USER } from '../../gql/user';
+import { useMutation } from '@apollo/client';
 import './RegisterForm.scss';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
 const RegisterForm = () => {
+  const [register] = useMutation(REGISTER_USER);
 
   const formik = useFormik({
     initialValues: initialValues(),
@@ -19,8 +22,19 @@ const RegisterForm = () => {
       confirmPassword: yup.string().required('Confirm your password')
       .oneOf([yup.ref('password')], 'Password doesn\'t match')
     }),
-    onSubmit: (formData) => {
-      console.log(formData)
+    onSubmit: async(formData) => {
+      try {
+      const newUser = formData;
+      delete newUser.confirmPassword;
+      await register({
+        variables:{
+          input: newUser
+        }
+      });
+      } catch(error) {
+        console.log(error)
+      }
+      formik.handleReset();
     },
   });
 
