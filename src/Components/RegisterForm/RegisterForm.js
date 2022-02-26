@@ -32,8 +32,10 @@ const RegisterForm = () => {
           input: newUser
         }
       });
+      toast.success('User registered!')
       } catch(error) {
         console.log(error)
+        toast.error(error.message)
       }
       formik.handleReset();
     },
