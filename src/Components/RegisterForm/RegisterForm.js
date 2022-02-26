@@ -1,10 +1,15 @@
 import React from 'react';
-import { Button, TextField, makeStyles, InputAdornment, PersonIcon } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import './RegisterForm.scss';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
 const RegisterForm = () => {
+
+  const formik = useFormik({
+    initialValues: initialValues(),
+
+  })
   return (
     <>
       <form onSubmit={() => console.log('hello world')}>
@@ -18,11 +23,11 @@ const RegisterForm = () => {
           id='name'
           name='name'
           label='name'
-          inputProps={{shrink: false}}
+          inputProps={{shrink: +false}}
           style={{borderRadius:'10px',
             backgroundColor: "white"
           }}
-
+          onChange={(e)=>console.log(e.target.value)}
         />
 
         <TextField
@@ -33,7 +38,7 @@ const RegisterForm = () => {
           id='username'
           name='username'
           label='username'
-          InputProps={{shrink:false}}
+          InputProps={{shrink: +false}}
           style={{
             borderRadius:'10px',
             backgroundColor: "white"
@@ -48,7 +53,7 @@ const RegisterForm = () => {
           id='email'
           name='email'
           label='email'
-          InputProps={{shrink:false}}
+          InputProps={{shrink: +false}}
           style={{
             borderRadius:'10px',
             backgroundColor: "white"
@@ -64,7 +69,7 @@ const RegisterForm = () => {
           id='password'
           name='password'
           label='password'
-          InputProps={{shrink:false}}
+          InputProps={{shrink: +false}}
           style={{
             borderRadius:'10px',
             backgroundColor: "white"
@@ -80,7 +85,7 @@ const RegisterForm = () => {
           id='confirmPassword'
           name='confirmPassword'
           label='confirmPassword'
-          InputProps={{shrink:false}}
+          InputProps={{shrink: +false}}
           style={{
             borderRadius:'10px',
             backgroundColor: "white"
@@ -90,6 +95,16 @@ const RegisterForm = () => {
       </form>
     </>
   )
+};
+
+function initialValues(){
+    return {
+      name: "",
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    }
 }
 
 export default RegisterForm;
