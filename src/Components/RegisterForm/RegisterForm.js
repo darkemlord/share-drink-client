@@ -26,6 +26,7 @@ const RegisterForm = () => {
       try {
       const newUser = formData;
       delete newUser.confirmPassword;
+      console.log(newUser);
       await register({
         variables:{
           input: newUser
@@ -145,7 +146,7 @@ function initialValues(){
       username: "",
       email: "",
       password: "",
-      confirmPassword: "",
+      confirmPassword: ""
     }
 }
 
