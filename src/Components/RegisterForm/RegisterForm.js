@@ -26,11 +26,16 @@ const RegisterForm = () => {
     }),
     onSubmit: async(formData) => {
       try {
-      const newUser = formData;
-      delete newUser.confirmPassword;
+      const {name, username, email, password } = formData
+
       await register({
         variables:{
-          input: newUser
+          input: {
+            name,
+            username,
+            email,
+            password
+          }
         }
       });
       toast.success('User registered!')
