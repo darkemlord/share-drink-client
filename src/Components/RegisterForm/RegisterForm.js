@@ -5,11 +5,12 @@ import { useMutation } from '@apollo/client';
 import './RegisterForm.scss';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { toast } from 'react-toastify'
+import { toast } from 'react-toastify';
 
 const RegisterForm = () => {
   const [register] = useMutation(REGISTER_USER);
 
+  // Formik is used to validate the form data and handle the submit button
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: yup.object({

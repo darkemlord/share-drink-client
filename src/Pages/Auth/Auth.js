@@ -3,7 +3,6 @@ import './Auth.scss';
 import RegisterForm from '../../Components/RegisterForm/RegisterForm';
 import { Container } from '@mui/material';
 import logo from '../../assets/Images/sharedrinklogo.png';
-import background from '../../assets/Images/formBack.jpg';
 
 
 const Auth = (props) => {
