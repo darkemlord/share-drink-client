@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Auth.scss';
-import RegisterForm from '../../Components/Auth/RegisterForm/RegisterForm';
+import RegisterForm from '../../Components/Auth/RegisterForm';
+import LoginForm from '../../Components/Auth/LoginForm'
 import { Container } from '@mui/material';
 import logo from '../../assets/Images/sharedrinklogo.png';
 
@@ -12,7 +13,7 @@ const Auth = (props) => {
     <Container className='auth'>
       <div className='form-container'>
         <img className='logo-form'src={logo} alt='no available'/>
-        {loginForm ? <h1>Login Form</h1> : <RegisterForm changeform={setLoginForm}/>}
+        {loginForm ? <LoginForm changeform={setLoginForm}/> : <RegisterForm changeform={setLoginForm}/>}
       </div>
     </Container>
   )
