@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Auth.scss';
-import RegisterForm from '../../Components/RegisterForm/RegisterForm';
+import RegisterForm from '../../Components/Auth/RegisterForm/RegisterForm';
 import { Container } from '@mui/material';
 import logo from '../../assets/Images/sharedrinklogo.png';
 

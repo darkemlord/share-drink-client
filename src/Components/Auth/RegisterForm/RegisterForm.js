@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, TextField } from '@mui/material';
-import { REGISTER_USER } from '../../gql/user';
+import { REGISTER_USER } from '../../../gql/user';
 import { useMutation } from '@apollo/client';
 import './RegisterForm.scss';
 import { useFormik } from 'formik';
