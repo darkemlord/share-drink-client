@@ -18,3 +18,12 @@ fieldset{
 .register-button {
   margin-top: 15px !important;
 }
+
+.login-info {
+  color: $beer;
+  span{
+    color: $wine;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

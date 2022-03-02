@@ -142,6 +142,13 @@ const RegisterForm = () => {
           onChange={formik.handleChange}
           error={formik.errors.confirmPassword && true}
         />
+
+        {/* switch to login if already have an account */}
+        <div className='login-info'>
+          <p>Already have an account?</p>
+          <span>login here</span>
+        </div>
+
         <Button className='register-button' type='submit' variant='contained'>Register!</Button>
       </form>
     </>
