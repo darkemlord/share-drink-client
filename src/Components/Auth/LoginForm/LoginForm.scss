@@ -8,3 +8,12 @@
     color: white !important;
   }
 }
+
+.register-info {
+  color: $beer;
+  span{
+    color: $wine;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

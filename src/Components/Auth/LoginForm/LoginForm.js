@@ -4,9 +4,10 @@ import { useFormik } from 'formik';
 import { TextField, Button } from '@mui/material';
 import './LoginForm.scss'
 
-const LoginForm = () => {
+const LoginForm = (props) => {
+  const { changeform } = props
 
-    const formik = useFormik({
+  const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: yup.object({
       email: yup.string().email('Email is not valid').required('Email is required'),
@@ -55,6 +56,11 @@ const LoginForm = () => {
           onChange={formik.handleChange}
           error={formik.errors.password && true}
         />
+
+        <div className='register-info'>
+          <p>Already have an account?</p>
+          <span onClick={() => changeform(false)}>Sign in here</span>
+        </div>
 
         <Button className='register-button' type='submit' variant='contained'>Login</Button>
       </form>
