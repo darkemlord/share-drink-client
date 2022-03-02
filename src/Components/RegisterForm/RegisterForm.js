@@ -7,9 +7,9 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { toast } from 'react-toastify';
 
-const RegisterForm = () => {
+const RegisterForm = (props) => {
   const [register] = useMutation(REGISTER_USER);
-
+  const { changeform } = props;
   // Formik is used to validate the form data and handle the submit button
   const formik = useFormik({
     initialValues: initialValues(),
@@ -26,7 +26,7 @@ const RegisterForm = () => {
     }),
     onSubmit: async(formData) => {
       try {
-      const {name, username, email, password } = formData
+      const { name, username, email, password } = formData
 
       await register({
         variables:{
@@ -146,7 +146,7 @@ const RegisterForm = () => {
         {/* switch to login if already have an account */}
         <div className='login-info'>
           <p>Already have an account?</p>
-          <span>login here</span>
+          <span onClick={() => changeform(true)}>login here</span>
         </div>
 
         <Button className='register-button' type='submit' variant='contained'>Register!</Button>
