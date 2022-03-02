@@ -7,7 +7,7 @@ import logo from '../../assets/Images/sharedrinklogo.png';
 
 
 const Auth = (props) => {
-  const [loginForm, setLoginForm] = useState(false);
+  const [loginForm, setLoginForm] = useState(true);
 
   return (
     <Container className='auth'>

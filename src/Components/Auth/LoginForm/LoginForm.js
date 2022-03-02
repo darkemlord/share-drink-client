@@ -58,7 +58,7 @@ const LoginForm = (props) => {
         />
 
         <div className='register-info'>
-          <p>Already have an account?</p>
+          <p>Do you haven't an account?</p>
           <span onClick={() => changeform(false)}>Sign in here</span>
         </div>
 
