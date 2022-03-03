@@ -5,6 +5,7 @@ import { TextField, Button } from '@mui/material';
 import './LoginForm.scss'
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../../gql/user'
+import { setToken } from '../../../utils/token';
 
 const LoginForm = (props) => {
   const { changeform } = props
@@ -24,12 +25,12 @@ const LoginForm = (props) => {
           }
         });
         const { token } = data.login
-        console.log(token);
+        setToken(token);
       } catch(error){
         console.log(error)
       }
+      formik.handleReset()
       },
-
   });
   return (
     <>
