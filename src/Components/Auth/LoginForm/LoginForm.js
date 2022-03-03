@@ -14,7 +14,8 @@ const LoginForm = (props) => {
       password: yup.string().required('Password is required')
     }),
     onSubmit: (formData) => {
-      console.log(formData)
+      const user = formData;
+
     },
   });
   return (
