@@ -3,9 +3,12 @@ import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { TextField, Button } from '@mui/material';
 import './LoginForm.scss'
+import { useMutation } from '@apollo/client';
+import { LOGIN } from '../../../gql/user'
 
 const LoginForm = (props) => {
   const { changeform } = props
+  const [ login ] = useMutation(LOGIN)
 
   const formik = useFormik({
     initialValues: initialValues(),
@@ -13,10 +16,20 @@ const LoginForm = (props) => {
       email: yup.string().email('Email is not valid').required('Email is required'),
       password: yup.string().required('Password is required')
     }),
-    onSubmit: (formData) => {
-      const user = formData;
+    onSubmit: async (formData) => {
+      try{
+        const { data } = await login({
+          variables: {
+            input: formData
+          }
+        });
+        const { token } = data.login
+        console.log(token);
+      } catch(error){
+        console.log(error)
+      }
+      },
 
-    },
   });
   return (
     <>
