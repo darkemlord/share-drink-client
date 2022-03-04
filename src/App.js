@@ -4,9 +4,18 @@ import client from './config/apollo';
 import Auth from "./Pages/Auth/Auth";
 import { ApolloProvider } from '@apollo/client';
 import { ToastContainer } from 'react-toastify';
+import { getToken, decodeToken } from './utils/token';
 
 function App() {
   const [auth, setAuth] = useState(null);
+  useEffect(() => {
+    const token = getToken();
+    if(token === null) {
+      setAuth(null)
+    } else {
+      setAuth(token)
+    }
+  }, [auth])
 
   return (
     <>
