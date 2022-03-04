@@ -6,10 +6,13 @@ import './LoginForm.scss'
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../../gql/user'
 import { setToken } from '../../../utils/token';
+import { useAuth } from '../../../hooks/useAuth';
 
 const LoginForm = (props) => {
   const { changeform } = props
   const [ login ] = useMutation(LOGIN)
+  const auth = useAuth();
+  const { setUser } = auth;
 
   const formik = useFormik({
     initialValues: initialValues(),
@@ -26,6 +29,7 @@ const LoginForm = (props) => {
         });
         const { token } = data.login
         setToken(token);
+        setUser(token);
       } catch(error){
         console.log(error)
       }

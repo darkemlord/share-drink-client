@@ -6,7 +6,7 @@ import { Container } from '@mui/material';
 import logo from '../../assets/Images/sharedrinklogo.png';
 
 
-const Auth = (props) => {
+const Auth = () => {
   const [loginForm, setLoginForm] = useState(true);
 
   return (
