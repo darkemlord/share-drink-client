@@ -13,9 +13,9 @@ function App() {
     if(token === null) {
       setAuth(null)
     } else {
-      setAuth(token)
+      setAuth(decodeToken(token))
     }
-  }, [auth])
+  }, [])
 
   return (
     <>
