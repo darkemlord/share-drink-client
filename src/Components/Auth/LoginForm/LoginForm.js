@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { TextField, Button } from '@mui/material';
@@ -10,6 +10,7 @@ import { useAuth } from '../../../hooks/useAuth';
 
 const LoginForm = (props) => {
   const { changeform } = props
+  const [error, setError] = useState('')
   const [ login ] = useMutation(LOGIN)
   const auth = useAuth();
   const { setUser } = auth;
@@ -31,6 +32,7 @@ const LoginForm = (props) => {
         setToken(token);
         setUser(token);
       } catch(error){
+        setError(error.message)
         console.log(error)
       }
       formik.handleReset()
@@ -75,7 +77,7 @@ const LoginForm = (props) => {
           onChange={formik.handleChange}
           error={formik.errors.password && true}
         />
-
+        {error !== '' ? <span className="error-mesage">{error}</span> : <span></span>}
         <div className='register-info'>
           <p>Do you haven't an account?</p>
           <span onClick={() => changeform(false)}>Sign in here</span>
